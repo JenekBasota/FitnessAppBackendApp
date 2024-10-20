@@ -15,7 +15,7 @@ export class User {
   @Column()
   password_hash: string;
 
-  @Column({ nullable: false })
+  @Column()
   phone_number: string;
 
   @Column()

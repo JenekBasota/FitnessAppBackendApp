@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './controllers/user.controller';
 import { User } from './entities/user.entity';
 import { UsersService } from './services/user.service';
+import { UsersModule } from './modules/user.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { UsersService } from './services/user.service';
       autoLoadEntities: true,
       synchronize: false,
     }),
-    TypeOrmModule.forFeature([User]), // Регистрация репозитория для сущности User
+    TypeOrmModule.forFeature([User]),
+    UsersModule,
   ],
   controllers: [UsersController],
   providers: [UsersService],
